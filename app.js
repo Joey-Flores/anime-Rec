@@ -48,13 +48,19 @@ function displayImg(shows) {
         const img = document.createElement('img');
         let h1 = document.createElement('h1');
         let p = document.createElement('p');
+        let button = document.createElement('button');
+        button.innerText = 'Find Similar Anime';
+        button.classList.add('recommend');
         img.src = shows.image_url;
         h1.innerText = shows.title;
         p.innerText = shows.synopsis;
         div.append(p);
         div.append(img);
+        div.append(button);
         div.append(h1);
         mainDiv.append(div);
+        recommend();
+        return
     }
     select();
 }
@@ -76,12 +82,20 @@ function select() {
             deleteImg();
         })
         res.addEventListener('click', function () {
-
+            displayInfo();
         })
     }
 }
 
-recommend = async () => {
+recommend = function () {
+    let recButton = document.querySelector('.recommend');
+    recButton.addEventListener('click', () => {
+                searchRecommend();
+                deleteImg();
+            })
+}
+
+searchRecommend = async () => {
     const res = await axios.get(`https://api.jikan.moe/v3/anime/${selectedShowId}/recommendations`);
     const resBack = res.data.recommendations;
     displayImg(resBack);
@@ -91,5 +105,4 @@ displayInfo = async () => {
     const res = await axios.get(`https://api.jikan.moe/v3/anime/${selectedShowId}`);
     const resBack = res.data;
     displayImg(resBack);
-    // console.log(resBack.image_url)
 }
