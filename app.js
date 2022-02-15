@@ -6,7 +6,7 @@ form.addEventListener('submit', async function(e) {
     e.preventDefault();
     deleteImg();
     const search = this.elements.query.value;
-    const res = await axios.get(`https://api.jikan.moe/v3/search/anime?q=${search}&limit=15`);
+    const res = await axios.get(`https://api.jikan.moe/v3/search/anime?q=${search}`);
     const resBack = res.data.results;
     displayImg(resBack);
     form.elements.query.value = '';

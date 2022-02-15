@@ -154,6 +154,7 @@ div img {
 .cardSelected p {
   grid-area: description;
   padding-left: 25px;
+  line-height: 1.5em;
 }
 
 .cardSelected img {
