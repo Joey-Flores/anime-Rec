@@ -3,17 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="normalize.css" />
     <link rel="stylesheet" href="style.css" />
     <title>Search App</title>
   </head>
 
   <body>
-    <h1>Search for a Show</h1>
-    <form id="search">
-      <input type="text" placeholder="Show Title" name="query" />
-      <button id="button">Search</button>
-    </form>
+    <div class="mainSearch bund">
+      <h1>Search for an Anime</h1>
+      <form id="search">
+        <input type="text" placeholder="Anime Title" name="query" />
+        <button id="button">Search</button>
+        <video src="bgvideo.mp4" muted loop autoplay></video>
+      </form>
+    </div>
+    <div class="overlay"></div>
     <div id="mainContainer"></div>
     <script src="app.js"></script>
   </body>
